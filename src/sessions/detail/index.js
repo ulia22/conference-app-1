@@ -12,19 +12,16 @@ export default class SessionDetail {
                         <div class="container">
                             <div class="row">
                                 <a href="#sessions-list" class="btn btn-primary col-xs-5">retour à la liste des sessions</a>
-
                                 <br>
                                 <h3>${session.title}</h3>
                                 
                                 <div class="form-group" >
                                     ${session.desc}
                                 </div>
-    
-                                <div class="row">
-                                    <a href="#notes=${session.id}" class="btn btn-primary col-xs-5">Mes notes</a>
-                                </div>
                             </div>
-                            
+                            <div class="row">
+                            <a href="#notes=${session.id}" class="btn btn-primary col-xs-5">Mes notes</a>
+                        </div>
                         </div>
                     `
                 )
