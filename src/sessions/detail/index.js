@@ -6,18 +6,17 @@ export default class SessionDetail {
         var detail = new TalkService();
         detail.findSessionById(idSession).then(session => {
                 $("#" + idView).html(
-
                     `
                         <br>
                         <div class="container">
                             <div class="row">
-                                <a href="#sessions-list" class="btn btn-primary col-xs-5">retour à la liste des sessions</a>
-                                <br>
-                                <h3>${session.title}</h3>
-                                
-                                <div class="form-group" >
-                                    ${session.desc}
-                                </div>
+                            <a href="#sessions-list" class="btn btn-primary col-xs-5">retour à la liste des sessions</a>
+                            </div>
+                            <br>
+                            <h3 style="margin-left: -1.5%;">${session.title}</h3>
+                            
+                            <div class="form-group" style="margin-left: -1.5%;" >
+                                ${session.desc}
                             </div>
                             <div class="row">
                             <a href="#notes=${session.id}" class="btn btn-primary col-xs-5">Mes notes</a>

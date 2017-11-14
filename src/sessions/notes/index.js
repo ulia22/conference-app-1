@@ -1,7 +1,10 @@
 import * as $ from "jquery"
 import TalkService from '../../common/talk.service'
 
+
+
 export default class SessionNote {
+
     render(idView, idSession) {
         var detail = new TalkService();
         detail.findSessionById(idSession).then(session => {
@@ -10,12 +13,12 @@ export default class SessionNote {
                         <br>
                         <div class="container">
                             <div class="row ">
-                                <input type="submit" class="btn btn-primary col-xs-5">
+                                <button type="button" onclick="localStorage['${session.id}']= document.getElementById('textarea_id').value;window.location.href='#sessions-list'"" class="btn btn-primary">Confirmer</button><br>
                             </div>
                             <br>
                             <h3 style="margin-left: -1.5%;">${session.title} - ${session.id}</h3>
                             <div class="form-group" style="margin-left: -1.5%;">
-                                <textarea class="form-control" rows="3">${session.desc}</textarea>
+                                <textarea id="textarea_id" class="form-control" rows="3">${localStorage.getItem(session.id)}</textarea>
                             </div>
 
                             <div class="row ">
