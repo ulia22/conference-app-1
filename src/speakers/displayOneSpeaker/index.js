@@ -6,36 +6,36 @@ export default class Speaker {
   constructor(talkService) {
     this.TalkService = talkService
   }
-  findSpeakerFromId(id){
-    let tab = this.TalkService.findAllSpeakers()
-    this.theSpeaker = tab
-    .then((tab)=>{
-      for(var i = 0; i < tab.length; i++){
-        if(tab[i].id == id){
-          return tab[i]
-        }
-      }
-    },
-    (err)=>{console.log("Erreur findSpeakerFromId !");})
-  }
+
 
   render(idSpeaker) {
-    this.theSpeaker = null;
-    this.findSpeakerFromId(idSpeaker)
-    this.theSpeaker
-    .then((speaker)=>{
+    let speaker = this.TalkService.findSpeakerById(idSpeaker)
+
+    speaker.then((speaker)=>{
       $('body').html($('body').html()+speakerCorp)
       $('img').attr('src', "../image/"+speaker.image)
       $('#name').html(`${speaker.firstname} ${speaker.lastname}`)
+      if(speaker.socials){
+        $('#liensReseaux').html('<ul>')
+        for (var index in speaker.socials) {
+           let href = speaker.socials[index].link
+           let text = speaker.socials[index].class
+           let link = `<a href='${href}'>${text}</a><br/>`
+           $('#liensReseaux').html($('#liensReseaux').html()+'<li>'+link+'</li>')
+         }
+         $('#liensReseaux').html($('#liensReseaux').html()+'</ul>')
+      }
+        let session = this.TalkService.findAllSessionsBySpeakerId(idSpeaker)
+        session.then((sessions)=>{
+          $('#presentation').html('Ses présentations <ul>')
+          for (var indexSession in sessions) {
+            let title = sessions[indexSession].title
+            let href = ``
+            let link = `<a href='${href}'>${title}</a><br/>`
+              $('#presentation').html($('#presentation').html()+'<li>'+link+'</li>')
+          }
+           $('#presentation').html($('#presentation').html()+'</ul>')
+        })
     })
-    // if(this.theSpeaker){
-    //   $('body').html($('body').html()+speakerCorp)
-    //   $('img').attr('src', this.theSpeaker.image)
-    //   $('#name').html(`${this.theSpeaker.firstname} ${this.theSpeaker.lastname}`)
-    // }else{
-    //   console.log("Speaker not found.");
-    // }
-
-
   }
 }

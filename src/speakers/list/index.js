@@ -9,7 +9,6 @@ export default class SpeakerList {
 
   render(idView) {
       let tab = this.TalkService.findAllSpeakers()
-      console.log(tab);
       tab
       .then((tab)=>{
         this.rendu = `<ul id="listePres" class="list-group">`
