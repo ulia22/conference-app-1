@@ -26,7 +26,7 @@ var router = () => {
     speakerList.render('body')
   } else if (location.hash == '#sessions-list') {
     // TODO afficher vue liste des sessions
-  }else if (location.hash == '') {
+  }else if (location.hash == '#' || location.hash == '') {
     let corpAccueilDefault = new CorpAccueil()
     corpAccueilDefault.render()
   } else {
@@ -39,7 +39,3 @@ window.addEventListener('load', () => {
   };
   router();
 });
-
-
-
-console.log("Lol");
