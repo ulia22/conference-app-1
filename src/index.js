@@ -10,8 +10,12 @@ import TalkService from './common/talk.service';
 // intégration JQuery
 window.$ = window.jQuery = require('jquery');
 
+//Intégration du Layout renderer
+import Layout from './layout'
+
 const talkService = new TalkService()
 
 const tabSpeakers = talkService.findAllSpeakers()
-
-console.log(tabSpeakers)
+console.log("Lol");
+let layoutRender = new Layout()
+layoutRender.render()
