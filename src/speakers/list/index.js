@@ -3,12 +3,11 @@ import TalkService from '../../common/talk.service'
 
 export default class SpeakerList {
 
-    constructor(talkService) {
-        this.TalkService = talkService
-    }
+  constructor(talkService) {
+    this.TalkService = talkService
+  }
 
-    render(idView) {
-
+  render(idView) {
       let tab = this.TalkService.findAllSpeakers()
       console.log(tab);
       tab
@@ -19,9 +18,8 @@ export default class SpeakerList {
         }
         this.rendu += `</ul>`
         console.log(this.rendu);
-        $(idView).html($(idView).html()+this.rendu)
+        $('body').html($('body').html()+this.rendu)
       },
       (err)=>{console.log("Erreur !");})
-
-    }
+  }
 }
