@@ -12,10 +12,11 @@ import SpeakerList from './speakers/list/index.js'
 window.$ = window.jQuery = require('jquery');
 
 const talkService = new TalkService()
-
+const speakerList = new SpeakerList(talkService)
 /* Création objet de layout */
 let layoutDefault = new Layout()
 layoutDefault.render()
 
 const tabSpeakers = talkService.findAllSpeakers()
+speakerList.render('body')
 console.log("Lol");
