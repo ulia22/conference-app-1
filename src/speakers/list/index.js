@@ -13,7 +13,7 @@ export default class SpeakerList {
             .then((tab) => {
                     this.rendu = `<ul id="listePres" class="list-group">`
                     for (var i = 0; i < tab.length; i++) {
-                        this.rendu += `<li class="list-group-item"><a href="#speakers-list?id=${tab[i].id}"><span class="glyphicon glyphicon-chevron-right pull-right"></span>` + tab[i].firstname + " " + tab[i].lastname + `</a></li>`
+                        this.rendu += `<li class="list-group-item"><a href="#speakers-list?id=${tab[i].id}">` + tab[i].firstname + " " + tab[i].lastname + `</a></li>`
                     }
                     this.rendu += `</ul>`
                     $('body').html($('body').html() + this.rendu)

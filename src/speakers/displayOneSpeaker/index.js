@@ -21,18 +21,18 @@ export default class Speaker {
                     let href = speaker.socials[index].link
                     let text = speaker.socials[index].class
                     let link = `<a href='${href}'>${text}</a><br/>`
-                    $('#liensReseaux').html($('#liensReseaux').html() + '<li>' + link + '</li>')
+                    $('#liensReseaux').html($('#liensReseaux').html() + '<li class="list-unstyled">' + link + '</li>')
                 }
                 $('#liensReseaux').html($('#liensReseaux').html() + '</ul>')
             }
             let session = this.TalkService.findAllSessionsBySpeakerId(idSpeaker)
             session.then((sessions) => {
-                $('#presentation').html('Ses présentations <ul>')
+                $('#presentation').html('<h5>Ses présentations</h5> <ul>')
                 for (var indexSession in sessions) {
                     let title = sessions[indexSession].title
                     let href = `#session-detail=` + sessions[indexSession].id
                     let link = `<a href='${href}'>${title}</a><br/>`
-                    $('#presentation').html($('#presentation').html() + '<li>' + link + '</li>')
+                    $('#presentation').html($('#presentation').html() + '<li class="list-unstyled">' + link + '</li>')
                 }
                 $('#presentation').html($('#presentation').html() + '</ul>')
             })
