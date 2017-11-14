@@ -19,7 +19,7 @@ export default class SpeakerList {
         }
         this.rendu += `</ul>`
         console.log(this.rendu);
-        $(idView).html(this.rendu)
+        $(idView).html($(idView).html()+this.rendu)
       },
       (err)=>{console.log("Erreur !");})
 
