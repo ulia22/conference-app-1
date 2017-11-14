@@ -5,7 +5,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 
 import TalkService from './common/talk.service';
-import Layout from './layout/index.js'
+/* import Layout from './layout/index.js' */
 import SpeakerList from './speakers/list/index.js'
 
 // intégration JQuery

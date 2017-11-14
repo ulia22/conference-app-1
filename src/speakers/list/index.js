@@ -3,11 +3,12 @@ import TalkService from '../../common/talk.service'
 
 export default class SpeakerList {
 
-    constructor(TalkService) {
-        this.TalkService = TalkService
+    constructor(talkService) {
+        this.TalkService = talkService
     }
 
     render(idView) {
+
 
     }
 }
