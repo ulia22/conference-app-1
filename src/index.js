@@ -22,5 +22,6 @@ layoutDefault.render()
 
 const tabSpeakers = talkService.findAllSpeakers()
 console.log("Lol");
+
 let layoutRender = new Layout()
 layoutRender.render()
