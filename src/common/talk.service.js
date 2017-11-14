@@ -69,4 +69,27 @@ export default class TalkService {
             })
         })
     }
+
+    findAllSpeakersFromSessionBySpeakersIds(ids) {
+        return new Promise((resolve, reject) => {
+            $.get("http://localhost:3000/speakers", (speakers) => {
+              console.log("jvsbh" + ids);
+              //La listes des speakers avec les ids
+                let speakersList = []
+                //Si tous les speakers ont bien été récup
+                if(speakers){
+                  //Pour chaque speakers
+                  for (var indexSpeaker in speakers) {
+                    //Pour chaque ids
+                    for (var i in ids) {
+                      if (ids[i] == speakers[indexSpeaker].id) {
+                        speakersList.push(speakers[indexSpeaker])
+                      }
+                    }
+                  }
+                }
+                resolve(speakersList)
+            })
+        })
+    }
 }
