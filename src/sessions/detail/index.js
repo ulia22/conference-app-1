@@ -7,21 +7,22 @@ export default class SessionDetail {
         detail.findSessionById(idSession).then(session => {
                 $("#" + idView).html(
                     `
-                        <br>
+                        
                         <div class="container">
-                            <div class="row">
-                            <a href="#sessions-list" class="btn btn-primary col-xs-5">retour à la liste des sessions</a>
-                            </div>
+                            <a href="#sessions-list" class="list-group-item">Retour à la liste des sessions</a>
                             <br>
-                            <h3 style="margin-left: -1.5%;">${session.title}</h3>
+                            <div class="col"
+                                <h3 style="margin-left: -1.5%;" class="row">${session.title}</h3>
                             
-                            <div class="form-group" style="margin-left: -1.5%;" >
-                                ${session.desc}
+                                <div class="form-group" style="margin-left: -1.5%;" >
+                                    ${session.desc}
+                                </div>
+                                <div  class="col"><div class="col style="margin-top" id="speakers"></div></div>
+                                <br>
+                                <div class="col">
+                                    <a href="#notes=${session.id}" class="col btn btn-secondary col-xs-5">Mes notes</a>
+                                </div>
                             </div>
-                            <div  class="row"><div class="col" id="speakers"></div></div>
-                            <div class="row">
-                            <a href="#notes=${session.id}" class="btn btn-primary col-xs-5">Mes notes</a>
-                        </div>
                         </div>
                     `
                 )
@@ -32,7 +33,7 @@ export default class SessionDetail {
                         for (var i in speakers) {
                             s += `
                       <div class="row">
-                          <div class="col"><img src="../image/${speakers[i].image}"/></div>
+                          <div class="col"><img src="../image/${speakers[i].image}" style="min-width:20%; max-width:100%;"/></div>
                           <div class="col"><a href="#speakers-list?id=${speakers[i].id}">${speakers[i].firstname} ${speakers[i].lastname}</a></div>
                       </div>`
                         }

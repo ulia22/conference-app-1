@@ -11,9 +11,9 @@ export default class SessionsList {
 
         let tab = this.TalkService.findAllSession()
         tab.then((tab) => {
-                this.rendu = `<ul id="listeSessions">`
+                this.rendu = `<ul id="listeSessions" class="list-group">`
                 for (var i = 0; i < tab.length; i++) {
-                    this.rendu += '<li><a href=#session-detail=' + tab[i].id + '>' + tab[i].title + '</a></li>'
+                    this.rendu += '<li class="list-group-item"><a href=#session-detail=' + tab[i].id + '>' + tab[i].title + '</a></li>'
                 }
                 this.rendu += `</ul>`
                     /* console.log(this.rendu); */
