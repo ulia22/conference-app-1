@@ -13,4 +13,25 @@ export default class TalkService {
             })
         })
     }
+
+
+    findAllSession() {
+        return new Promise((resolve, reject) => {
+            $.get("http://localhost:3000/sessions/", (sessions) => {
+                resolve(sessions)
+            })
+        })
+    }
+
+    findSessionById(id) {
+        return new Promise((resolve, reject) => {
+            $.get("http://localhost:3000/sessions/", (sessions) => {
+                sessions.forEach(session => {
+                    if (session.id === id) {
+                        resolve(session)
+                    }
+                })
+            })
+        })
+    }
 }
