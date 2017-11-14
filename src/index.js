@@ -59,11 +59,11 @@ var router = () => {
             speaker.render(parseParam(location.hash));
         }
     } else if (location.hash == '') {
-        // affiche 
+        // affiche
         let corpAccueilDefault = new CorpAccueil()
         corpAccueilDefault.render()
     } else if (location.hash == '#sessions-list') {
-        // TODO afficher vue liste des sessions 
+        // TODO afficher vue liste des sessions
         sessionList.render('body')
     } else {
         var url = location.hash.split('=')

@@ -16,7 +16,6 @@ export default class SpeakerList {
                         this.rendu += `<li class="list-group-item"><a href="#speakers-list?id=${tab[i].id}">` + tab[i].firstname + " " + tab[i].lastname + `</a></li>`
                     }
                     this.rendu += `</ul>`
-                    console.log(this.rendu);
                     $('body').html($('body').html() + this.rendu)
                 },
                 (err) => { console.log("Erreur !"); })
