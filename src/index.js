@@ -21,7 +21,7 @@ const speaker = new Speaker(talkService)
 
 //Routeur
 function parseAncor(locationHash){
-  if(locationHash.position('?') == -1){
+  if(!locationHash.includes('?')){
     return locationHash
   }else{
     return locationHash.split('?')[0]
@@ -30,7 +30,7 @@ function parseAncor(locationHash){
 
 function parseParam(locationHash){
   let param
-  if(locationHash.position('?') == -1){
+  if(!locationHash.includes('?')){
     return param;
   }else{
     let params = locationHash.split('?')[1]
