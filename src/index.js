@@ -1,42 +1,41 @@
-
 // Intégration de bootstrap (partie JS)
 import 'bootstrap';
 
 // Intégration de boostrap (partie CSS)
 import 'bootstrap/dist/css/bootstrap.css'
 
+//Import
 import TalkService from './common/talk.service';
+import Layout from './layout/index.js'
+import SpeakerList from './speakers/list/index.js'
+import CorpAccueil from './accueil/index.js'
 
 // intégration JQuery
 window.$ = window.jQuery = require('jquery');
 
-//Intégration du Layout renderer
-import Layout from './layout'
-
 const talkService = new TalkService()
+const speakerList = new SpeakerList(talkService)
 
-const tabSpeakers = talkService.findAllSpeakers()
-<<<<<<< HEAD
 
-console.log(tabSpeakers)
-
+//Routeur
+//interlocuteurvar router = () => {
 var router = () => {
-    if (location.hash == '#speakers-list') {
-    // TODO afficher vue liste des présentateurs
-    } else if (location.hash == '#sessions-list') {
+  let layoutDefault = new Layout()
+  layoutDefault.render();
+  if (location.hash == '#speakers-list') {
+    speakerList.render('body')
+  } else if (location.hash == '#sessions-list') {
     // TODO afficher vue liste des sessions
-    } else {
+  }else if (location.hash == '') {
+    let corpAccueilDefault = new CorpAccueil()
+    corpAccueilDefault.render()
+  } else {
     // TODO afficher vue par défaut
-    }
-    }
-    window.addEventListener('load', () => {
-    window.onhashchange = () => {
+  }
+}
+window.addEventListener('load', () => {
+  window.onhashchange = () => {
     router();
-    };
-    router();
-    });
-=======
-console.log("Lol");
-let layoutRender = new Layout()
-layoutRender.render()
->>>>>>> 18506394f2ce78d175136032ea2e6a1fbd88f97d
+  };
+  router();
+});
