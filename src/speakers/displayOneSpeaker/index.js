@@ -21,7 +21,7 @@ export default class Speaker {
            let href = speaker.socials[index].link
            let text = speaker.socials[index].class
            let link = `<a href='${href}'>${text}</a><br/>`
-           $('#liensReseaux').html($('#liensReseaux').html()+'<li>'+link+'</li>')
+           $('#liensReseaux').html($('#liensReseaux').html()+'<li class="list-unstyled">'+link+'</li>')
          }
          $('#liensReseaux').html($('#liensReseaux').html()+'</ul>')
       }
@@ -32,7 +32,7 @@ export default class Speaker {
             let title = sessions[indexSession].title
             let href = ``
             let link = `<a href='${href}'>${title}</a><br/>`
-              $('#presentation').html($('#presentation').html()+'<li>'+link+'</li>')
+              $('#presentation').html($('#presentation').html()+'<li class="list-unstyled">'+link+'</li>')
           }
            $('#presentation').html($('#presentation').html()+'</ul>')
         })

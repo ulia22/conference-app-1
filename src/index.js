@@ -10,6 +10,7 @@ import Layout from './layout/index.js'
 import SpeakerList from './speakers/list/index.js'
 import CorpAccueil from './accueil/index.js'
 import Speaker from './speakers/displayOneSpeaker/index.js'
+import SessionList from './sessions/list/index.js'
 
 // intégration JQuery
 window.$ = window.jQuery = require('jquery');
